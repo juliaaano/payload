@@ -33,6 +33,13 @@
 
     <dependencies>
 
+        <!-- Logging -->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
         <!-- Test -->
 
         <dependency>
@@ -47,7 +54,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Test Providers -->
+        <!-- Test JSON Providers -->
 
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -80,12 +87,6 @@
         </dependency>
 
         <!-- Test Logging -->
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>

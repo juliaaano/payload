@@ -4,6 +4,8 @@ import com.juliaaano.payload.provider.Provider;
 import com.juliaaano.payload.provider.ProviderException;
 import com.juliaaano.payload.provider.ProviderStrategy;
 import com.juliaaano.payload.provider.runtime.RuntimeProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +14,8 @@ import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
 
 public class JsonProviderStrategy implements ProviderStrategy {
+
+    private static final Logger log = LoggerFactory.getLogger(JsonProviderStrategy.class);
 
     private static final List<Class<? extends RuntimeProvider>> PROVIDERS = asList(
             Gson.class,
@@ -35,8 +39,10 @@ public class JsonProviderStrategy implements ProviderStrategy {
                             .map(RuntimeProvider::setup)
                             .orElseGet(Optional::empty);
 
-            if (instance.isPresent())
+            if (instance.isPresent()) {
+                log.info("JSON provider in use is {}.", provider.clazz.getName());
                 return instance.get();
+            }
         }
 
         throw new ProviderException("JSON Providers not found in the classpath.");
