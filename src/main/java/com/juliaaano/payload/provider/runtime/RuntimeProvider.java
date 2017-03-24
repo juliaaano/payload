@@ -8,7 +8,7 @@ public abstract class RuntimeProvider {
 
     public Optional<Provider> setup() {
 
-        final Object instance = providerInstance().orElseGet(null);
+        final Object instance = providerInstance().orElse(null);
 
         if (instance == null)
             return Optional.empty();
