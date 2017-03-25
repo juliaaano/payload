@@ -111,28 +111,12 @@
 
     </dependencies>
 
-    <repositories>
-
-        <!-- Needed for JSON-B API -->
-        <repository>
-            <id>java.net-Public</id>
-            <name>Maven Java Net Snapshots and Releases</name>
-            <url>https://maven.java.net/content/groups/public/</url>
-        </repository>
-
-        <!-- Needed for Yasson -->
-        <repository>
-            <id>yasson-snapshots</id>
-            <name>Yasson Snapshots repository</name>
-            <url>https://repo.eclipse.org/content/repositories/yasson-snapshots</url>
-        </repository>
-    </repositories>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
                 <configuration>
                     <includes>
                         <include>**/*Should.java</include>
@@ -141,5 +125,20 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <!-- Needed for JSON-B API -->
+        <repository>
+            <id>java.net-Public</id>
+            <name>Maven Java Net Snapshots and Releases</name>
+            <url>https://maven.java.net/content/groups/public/</url>
+        </repository>
+        <!-- Needed for Yasson -->
+        <repository>
+            <id>yasson-snapshots</id>
+            <name>Yasson Snapshots repository</name>
+            <url>https://repo.eclipse.org/content/repositories/yasson-snapshots</url>
+        </repository>
+    </repositories>
 
 </project>
