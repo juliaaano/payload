@@ -28,7 +28,13 @@ public class JsonProviderStrategy implements ProviderStrategy {
             final Optional<Provider> instance = provider.newInstance();
 
             if (instance.isPresent()) {
-                log.info("JSON provider in use is {}.", provider);
+
+                log.info(
+                        "JSON provider in use is {} with instance from {}.",
+                        provider.getClass().getName(),
+                        instance.get()
+                );
+
                 return instance.get();
             }
         }

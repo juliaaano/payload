@@ -28,7 +28,13 @@ public class XmlProviderStrategy implements ProviderStrategy {
             final Optional<Provider> instance = provider.newInstance();
 
             if (instance.isPresent()) {
-                log.info("XML provider in use is {}.", provider);
+
+                log.info(
+                        "XML provider in use is {} with instance from {}.",
+                        provider.getClass().getName(),
+                        instance.get()
+                );
+
                 return instance.get();
             }
         }

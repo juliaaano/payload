@@ -30,4 +30,10 @@ class ReflectiveProvider implements Provider {
 
         return type.cast(deserialize.invoke(instance, raw, type));
     }
+
+    @Override
+    public String toString() {
+
+        return instance.getClass().getName();
+    }
 }
