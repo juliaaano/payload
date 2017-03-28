@@ -22,7 +22,7 @@ public class JsonProviderShould {
     @Parameters
     public static Collection<ProviderFactory[]> data() {
         return asList(new ProviderFactory[][]{
-                {new Gson()}, {new Jackson()}, {new JsonB()}
+                {new Gson()}, {new JacksonJson()}, {new JsonB()}
         });
     }
 

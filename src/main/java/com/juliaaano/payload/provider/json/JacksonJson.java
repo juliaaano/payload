@@ -6,11 +6,11 @@ import com.juliaaano.payload.provider.runtime.RuntimeProviderFactory;
 
 import java.util.Optional;
 
-public class Jackson implements JsonProviderFactory {
+public class JacksonJson implements JsonProviderFactory {
 
     private final RuntimeProviderFactory provider;
 
-    public Jackson() {
+    public JacksonJson() {
 
         this.provider = new RuntimeProviderFactory(
                 this::objectMapperInstance,
