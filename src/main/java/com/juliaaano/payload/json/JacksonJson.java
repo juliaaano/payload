@@ -1,4 +1,4 @@
-package com.juliaaano.payload.provider.json;
+package com.juliaaano.payload.json;
 
 import com.juliaaano.payload.provider.Provider;
 import com.juliaaano.payload.provider.runtime.MethodDefinition;
@@ -6,16 +6,16 @@ import com.juliaaano.payload.provider.runtime.RuntimeProviderFactory;
 
 import java.util.Optional;
 
-public class JsonB implements JsonProviderFactory {
+public class JacksonJson implements JsonProviderFactory {
 
     private final RuntimeProviderFactory provider;
 
-    public JsonB() {
+    public JacksonJson() {
 
         this.provider = new RuntimeProviderFactory(
-                this::jsonBInstance,
-                new MethodDefinition("toJson", Object.class),
-                new MethodDefinition("fromJson", String.class, Class.class)
+                this::objectMapperInstance,
+                new MethodDefinition("writeValueAsString", Object.class),
+                new MethodDefinition("readValue", String.class, Class.class)
         );
     }
 
@@ -25,14 +25,12 @@ public class JsonB implements JsonProviderFactory {
         return provider.newInstance();
     }
 
-    private Optional<Object> jsonBInstance() {
+    private Optional<Object> objectMapperInstance() {
 
         try {
 
             return Optional.of(
-                    Class.forName("javax.json.bind.JsonbBuilder")
-                            .getDeclaredMethod("create")
-                            .invoke(null)
+                    Class.forName("com.fasterxml.jackson.databind.ObjectMapper").newInstance()
             );
 
         } catch (ReflectiveOperationException ex) {

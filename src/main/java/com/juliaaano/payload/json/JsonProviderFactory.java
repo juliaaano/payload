@@ -1,4 +1,4 @@
-package com.juliaaano.payload.provider.json;
+package com.juliaaano.payload.json;
 
 import com.juliaaano.payload.provider.ProviderFactory;
 

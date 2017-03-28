@@ -1,4 +1,4 @@
-package com.juliaaano.payload.provider.json;
+package com.juliaaano.payload.json;
 
 import com.juliaaano.payload.provider.Provider;
 import com.juliaaano.payload.provider.runtime.MethodDefinition;
@@ -6,14 +6,14 @@ import com.juliaaano.payload.provider.runtime.RuntimeProviderFactory;
 
 import java.util.Optional;
 
-public class Gson implements JsonProviderFactory {
+public class JsonB implements JsonProviderFactory {
 
     private final RuntimeProviderFactory provider;
 
-    public Gson() {
+    public JsonB() {
 
         this.provider = new RuntimeProviderFactory(
-                this::gsonInstance,
+                this::jsonBInstance,
                 new MethodDefinition("toJson", Object.class),
                 new MethodDefinition("fromJson", String.class, Class.class)
         );
@@ -25,12 +25,14 @@ public class Gson implements JsonProviderFactory {
         return provider.newInstance();
     }
 
-    private Optional<Object> gsonInstance() {
+    private Optional<Object> jsonBInstance() {
 
         try {
 
             return Optional.of(
-                    Class.forName("com.google.gson.Gson").newInstance()
+                    Class.forName("javax.json.bind.JsonbBuilder")
+                            .getDeclaredMethod("create")
+                            .invoke(null)
             );
 
         } catch (ReflectiveOperationException ex) {

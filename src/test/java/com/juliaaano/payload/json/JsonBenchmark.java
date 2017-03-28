@@ -1,4 +1,4 @@
-package com.juliaaano.payload.provider.json;
+package com.juliaaano.payload.json;
 
 import com.google.gson.Gson;
 import com.juliaaano.payload.Dummy;

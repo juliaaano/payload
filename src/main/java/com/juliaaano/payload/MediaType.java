@@ -1,7 +1,7 @@
 package com.juliaaano.payload;
 
 import com.juliaaano.payload.cache.CachedProviderStrategy;
-import com.juliaaano.payload.provider.json.JsonProviderStrategy;
+import com.juliaaano.payload.json.JsonProviderStrategy;
 
 import static java.lang.String.format;
 

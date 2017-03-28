@@ -1,4 +1,4 @@
-package com.juliaaano.payload.provider.json;
+package com.juliaaano.payload.json;
 
 import com.juliaaano.payload.provider.Provider;
 import com.juliaaano.payload.provider.runtime.MethodDefinition;
@@ -6,16 +6,16 @@ import com.juliaaano.payload.provider.runtime.RuntimeProviderFactory;
 
 import java.util.Optional;
 
-public class JacksonJson implements JsonProviderFactory {
+public class Gson implements JsonProviderFactory {
 
     private final RuntimeProviderFactory provider;
 
-    public JacksonJson() {
+    public Gson() {
 
         this.provider = new RuntimeProviderFactory(
-                this::objectMapperInstance,
-                new MethodDefinition("writeValueAsString", Object.class),
-                new MethodDefinition("readValue", String.class, Class.class)
+                this::gsonInstance,
+                new MethodDefinition("toJson", Object.class),
+                new MethodDefinition("fromJson", String.class, Class.class)
         );
     }
 
@@ -25,12 +25,12 @@ public class JacksonJson implements JsonProviderFactory {
         return provider.newInstance();
     }
 
-    private Optional<Object> objectMapperInstance() {
+    private Optional<Object> gsonInstance() {
 
         try {
 
             return Optional.of(
-                    Class.forName("com.fasterxml.jackson.databind.ObjectMapper").newInstance()
+                    Class.forName("com.google.gson.Gson").newInstance()
             );
 
         } catch (ReflectiveOperationException ex) {
