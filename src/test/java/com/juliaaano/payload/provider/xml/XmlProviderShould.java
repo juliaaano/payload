@@ -2,7 +2,7 @@ package com.juliaaano.payload.provider.xml;
 
 import com.juliaaano.payload.Dummy;
 import com.juliaaano.payload.provider.Provider;
-import com.juliaaano.payload.provider.runtime.RuntimeProvider;
+import com.juliaaano.payload.provider.ProviderFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,17 +19,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class XmlProviderShould {
 
     @Parameterized.Parameters
-    public static Collection<Object[]> data() {
-        return asList(new Object[][]{
+    public static Collection<ProviderFactory[]> data() {
+        return asList(new ProviderFactory[][]{
                 {new JacksonXml()}
         });
     }
 
-    private final RuntimeProvider runtimeProvider;
+    private final ProviderFactory factory;
 
-    public XmlProviderShould(final RuntimeProvider runtimeProvider) {
+    public XmlProviderShould(final ProviderFactory factory) {
 
-        this.runtimeProvider = runtimeProvider;
+        this.factory = factory;
     }
 
     private Provider provider;
@@ -37,7 +37,7 @@ public class XmlProviderShould {
     @Before
     public void setup() {
 
-        provider = runtimeProvider.setup().get();
+        provider = factory.newInstance().get();
     }
 
     @Test

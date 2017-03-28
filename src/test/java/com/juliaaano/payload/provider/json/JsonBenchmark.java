@@ -30,7 +30,7 @@ import static org.junit.runners.MethodSorters.NAME_ASCENDING;
 @FixMethodOrder(NAME_ASCENDING)
 public class JsonBenchmark {
 
-    private static final Logger logger = LoggerFactory.getLogger(JsonBenchmark.class);
+    private static final Logger log = LoggerFactory.getLogger(JsonBenchmark.class);
 
     private static final Gson gson = new Gson();
 
@@ -45,7 +45,7 @@ public class JsonBenchmark {
     private static void logInfo(final Description description, final long nanos) {
 
         final String testName = description.getMethodName();
-        logger.info("Test {} {} milliseconds", testName, NANOSECONDS.toMillis(nanos));
+        log.info("Test {} {} milliseconds", testName, NANOSECONDS.toMillis(nanos));
     }
 
     @Rule

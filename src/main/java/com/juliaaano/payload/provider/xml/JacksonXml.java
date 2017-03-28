@@ -1,14 +1,31 @@
 package com.juliaaano.payload.provider.xml;
 
+import com.juliaaano.payload.provider.Provider;
 import com.juliaaano.payload.provider.runtime.MethodDefinition;
-import com.juliaaano.payload.provider.runtime.RuntimeProvider;
+import com.juliaaano.payload.provider.runtime.RuntimeProviderFactory;
 
 import java.util.Optional;
 
-public class JacksonXml extends RuntimeProvider {
+public class JacksonXml implements XmlProviderFactory {
+
+    private final RuntimeProviderFactory provider;
+
+    public JacksonXml() {
+
+        this.provider = new RuntimeProviderFactory(
+                this::xmlMapperInstance,
+                new MethodDefinition("writeValueAsString", Object.class),
+                new MethodDefinition("readValue", String.class, Class.class)
+        );
+    }
 
     @Override
-    protected Optional<Object> providerInstance() {
+    public Optional<Provider> newInstance() {
+
+        return provider.newInstance();
+    }
+
+    private Optional<Object> xmlMapperInstance() {
 
         try {
 
@@ -20,17 +37,5 @@ public class JacksonXml extends RuntimeProvider {
 
             return Optional.empty();
         }
-    }
-
-    @Override
-    protected MethodDefinition serialize() {
-
-        return new MethodDefinition("writeValueAsString", Object.class);
-    }
-
-    @Override
-    protected MethodDefinition deserialize() {
-
-        return new MethodDefinition("readValue", String.class, Class.class);
     }
 }

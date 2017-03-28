@@ -1,14 +1,31 @@
 package com.juliaaano.payload.provider.json;
 
+import com.juliaaano.payload.provider.Provider;
 import com.juliaaano.payload.provider.runtime.MethodDefinition;
-import com.juliaaano.payload.provider.runtime.RuntimeProvider;
+import com.juliaaano.payload.provider.runtime.RuntimeProviderFactory;
 
 import java.util.Optional;
 
-class Gson extends RuntimeProvider {
+public class Gson implements JsonProviderFactory {
+
+    private final RuntimeProviderFactory provider;
+
+    public Gson() {
+
+        this.provider = new RuntimeProviderFactory(
+                this::gsonInstance,
+                new MethodDefinition("toJson", Object.class),
+                new MethodDefinition("fromJson", String.class, Class.class)
+        );
+    }
 
     @Override
-    protected Optional<Object> providerInstance() {
+    public Optional<Provider> newInstance() {
+
+        return provider.newInstance();
+    }
+
+    private Optional<Object> gsonInstance() {
 
         try {
 
@@ -20,17 +37,5 @@ class Gson extends RuntimeProvider {
 
             return Optional.empty();
         }
-    }
-
-    @Override
-    protected MethodDefinition serialize() {
-
-        return new MethodDefinition("toJson", Object.class);
-    }
-
-    @Override
-    protected MethodDefinition deserialize() {
-
-        return new MethodDefinition("fromJson", String.class, Class.class);
     }
 }

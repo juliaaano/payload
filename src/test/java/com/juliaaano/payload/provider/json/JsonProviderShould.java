@@ -2,7 +2,7 @@ package com.juliaaano.payload.provider.json;
 
 import com.juliaaano.payload.Dummy;
 import com.juliaaano.payload.provider.Provider;
-import com.juliaaano.payload.provider.runtime.RuntimeProvider;
+import com.juliaaano.payload.provider.ProviderFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,17 +20,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class JsonProviderShould {
 
     @Parameters
-    public static Collection<Object[]> data() {
-        return asList(new Object[][]{
+    public static Collection<ProviderFactory[]> data() {
+        return asList(new ProviderFactory[][]{
                 {new Gson()}, {new Jackson()}, {new JsonB()}
         });
     }
 
-    private final RuntimeProvider runtimeProvider;
+    private final ProviderFactory factory;
 
-    public JsonProviderShould(final RuntimeProvider runtimeProvider) {
+    public JsonProviderShould(final ProviderFactory factory) {
 
-        this.runtimeProvider = runtimeProvider;
+        this.factory = factory;
     }
 
     private Provider provider;
@@ -38,7 +38,7 @@ public class JsonProviderShould {
     @Before
     public void setup() {
 
-        provider = runtimeProvider.setup().get();
+        provider = factory.newInstance().get();
     }
 
     @Test
