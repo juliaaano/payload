@@ -21,7 +21,7 @@ public class MethodDefinition {
         try {
 
             return new MethodInvoker(
-                    clazz.getDeclaredMethod(name, paramsTypes)
+                    clazz.getMethod(name, paramsTypes)
             );
 
         } catch (NoSuchMethodException ex) {

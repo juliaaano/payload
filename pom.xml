@@ -89,6 +89,14 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Test XML Providers -->
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <scope>test</scope>
+        </dependency>
+
         <!-- Test Logging -->
 
         <dependency>

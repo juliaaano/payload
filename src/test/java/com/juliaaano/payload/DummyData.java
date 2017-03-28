@@ -10,4 +10,6 @@ public class DummyData {
     public static final Dummy RANDOM_OBJECT = new Dummy(randomValue);
 
     public static final String RANDOM_JSON = format("{\"value\":\"%s\"}", randomValue);
+
+    public static final String RANDOM_XML = format("<Dummy><value>%s</value></Dummy>", randomValue);
 }
