@@ -1,4 +1,4 @@
-package com.juliaaano.payload.provider.xml;
+package com.juliaaano.payload.xml;
 
 import com.juliaaano.payload.Dummy;
 import com.juliaaano.payload.provider.Provider;
