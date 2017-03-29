@@ -1,7 +1,9 @@
 package com.juliaaano.payload;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
+@XmlRootElement
 public class Dummy {
 
     // public modifier required by providers (Jackson, JsonB)

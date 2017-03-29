@@ -21,7 +21,7 @@ public class XmlProviderShould {
     @Parameterized.Parameters
     public static Collection<ProviderFactory[]> data() {
         return asList(new ProviderFactory[][]{
-                {new JacksonXml()}
+                {new JacksonXml()}, {new Jaxb()}
         });
     }
 
@@ -51,6 +51,6 @@ public class XmlProviderShould {
     public void return_json_from_object() {
 
         final String json = provider.serialize(RANDOM_OBJECT);
-        assertThat(json).isEqualTo(RANDOM_XML);
+        assertThat(json).containsIgnoringCase(RANDOM_XML);
     }
 }
