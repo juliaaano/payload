@@ -6,6 +6,11 @@ import com.juliaaano.payload.xml.XmlProviderStrategy;
 
 import static java.lang.String.format;
 
+/**
+ * Entry-point for payload conversion (serialization/deserialization).
+ *
+ * @author Juliano Boesel Mohr
+ */
 public enum MediaType {
 
     JSON("application/json",
