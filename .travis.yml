@@ -1,0 +1,35 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+cache:
+  directories:
+    - "$HOME/.m2"
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_20a9906c1f0d_key -iv $encrypted_20a9906c1f0d_iv -in codesign.asc.enc -out codesign.asc -d
+  - gpg --batch --fast-import codesign.asc
+  - if [ -n "$TRAVIS_TAG" ]; then
+      mvn versions:set -DnewVersion=$TRAVIS_TAG;
+    fi
+
+install:
+  - mvn install -DskipTests=true -B -V -Psign -Dgpg.passphrase=$GPG_PASSPHRASE
+
+script:
+  - mvn test -B
+
+deploy:
+  provider: releases
+  api_key:
+    secure: PV+1IXQ0ZHdDMSIZ1kZLbzZN9TyIHcCqMbQhlEm6v4UetKhJPcGtSnEO0gDgso0yRjpEBWqPDZAAl8c8P745YCZ9iMrM6foKNq2AEh6X5rt1SnYLHQUytC81+ghlzVXg/6IBKHACZWObWhTeVaYlN26fEd/CBhB84xp2Aqj3nsgprBLuCjk3UmAX+na8EVXZPWElW7LrhfyFtdhkA79Hk6BrgTVviV6W2DiILeoRJtsu07oRl8nb8z7qT+bvBqdEPO9p9CQpWzWLbVxSSZM5xSOZ0tgyP4HyM8KQzFX8ywRrrUe6YxygHEKlEzEofZ4uSOmY3/OEQyCqsJpPTGX4zBmwqneRKJ4Jpl9/2YfDs2nZ2X9pJfCbPMBhddOcjEzZJhLRPFODOAtXoxPxZBWy5veXexOLdWCSI0cc2EjPwNPGL6mDVDuqb95LHK1iKyuGvEqPo8VM5pZZNGwS3xOGEeoputao0nZEKVci7QcHq70H3Kpbphp9WjweIlheCaA764KqWpp21hfebdEAfrr/eSqlJ5XQSiy320yNrmu7SlVyDVaRMNw9sKmI+kJqVbtDz/pi+UxKaCIY1AikGtbtzZrpc+jMshZ1AwQnFFP5VqzD/Zjh4lsyjagyycwhZW+cWw7xqhC45wZCCEWivaT+DWTH+VMKHOkO1Ga9LHPUp4s=
+  file_glob: true
+  file:
+    - target/payload-*.jar
+    - target/payload-*.jar.asc
+  skip_cleanup: true
+  on:
+    repo: juliaaano/payload
+    branch: master
+    tags: true
