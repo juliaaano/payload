@@ -2,10 +2,10 @@
 
 Easy conversion of HTTP payloads (JSON, XML, etc.) for Java.
 
-Payload acts as a Java-to-<MediaTypeAsString> facade or abstraction for various libraries such as Gson, Jackson, JAXB
+Payload acts as a Java-to-\<MediaTypeAsString> facade or abstraction for various libraries such as Gson, Jackson, JAXB
 and more. The underlying library used is known as the Provider and it gets evaluated in runtime by classpath lookup.
 
-Conceptually similar to what [SLF4J](https://www.slf4j.org/) does for logging. 
+Conceptually similar to what [SLF4J](https://www.slf4j.org/){:target="_blank"} does for logging. 
 
 ## How to use it
 
@@ -53,7 +53,7 @@ pre defined providers in the classpath. You can also [implement your own](#custo
 </dependency>
 ```
 
-In case you just need JSON conversion, add [Google Gson](https://github.com/google/gson) or any of the
+In case you just need JSON conversion, add [Google Gson](https://github.com/google/gson){:target="_blank"} or any of the
 other JSON pre defined [providers](#providers).
 
 ```xml
@@ -85,10 +85,10 @@ In case one or more are to be found, the priority is given by the order listed a
 
 ###### Custom Provider
 
-1. Implement one of the available <MediaType>ProviderFactory.java.
+1. Implement one of the available \<MediaType>ProviderFactory.java.
 2. Declare the full name of your implementation class in a file as per
-[java.util.ServiceLoader](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html) specification
-*/META-INF/services/com.juliaaano.payload.json.<MediaType>ProviderFactor*
+[java.util.ServiceLoader](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html){:target="_blank"} specification
+*/META-INF/services/com.juliaaano.payload.json.\<MediaType>ProviderFactor*
 
 ```java
 package com.your.project;
