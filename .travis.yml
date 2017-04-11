@@ -15,10 +15,20 @@ before_install:
     fi
 
 install:
-  - mvn install -DskipTests=true -B -V -Psign -Dgpg.passphrase=$GPG_PASSPHRASE
+  - mvn deploy -B -V -DskipTests -Dgpg.passphrase=$GPG_PASSPHRASE -Psign --settings settings.xml
 
 script:
   - mvn test -B
+
+after_success:
+  - if [ -n "$TRAVIS_TAG" ]; then
+      mvn nexus-staging:release --settings settings.xml;
+    fi
+
+after_failure:
+  - if [ -n "$TRAVIS_TAG" ]; then
+      mvn nexus-staging:drop --settings settings.xml;
+    fi
 
 deploy:
   provider: releases
