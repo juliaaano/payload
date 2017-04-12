@@ -1,11 +1,15 @@
-# Payload [![Build Status](https://travis-ci.org/juliaaano/payload.svg)](https://travis-ci.org/juliaaano/payload) [![Release](https://img.shields.io/github/release/juliaaano/payload.svg)](https://github.com/juliaaano/payload/releases/latest)
+# Payload
+[![Build Status](https://travis-ci.org/juliaaano/payload.svg)](https://travis-ci.org/juliaaano/payload)
+[![Release](https://img.shields.io/github/release/juliaaano/payload.svg)](https://github.com/juliaaano/payload/releases/latest)
+[![Maven Central](https://img.shields.io/maven-central/v/com.juliaaano/payload.svg)](https://maven-badges.herokuapp.com/maven-central/com.juliaaano/payload)
+[![Javadocs](http://www.javadoc.io/badge/com.juliaaano/payload.svg?color=blue)](http://www.javadoc.io/doc/com.juliaaano/payload)
 
 Easy conversion of HTTP payloads (JSON, XML, etc.) for Java.
 
 Payload acts as a Java-to-\<MediaTypeAsString> facade or abstraction for various libraries such as Gson, Jackson, JAXB
 and more. The underlying library used is known as the Provider and it gets evaluated in runtime by classpath lookup.
 
-Conceptually similar to what [SLF4J](https://www.slf4j.org/){:target="_blank"} does for logging. 
+Conceptually similar to what [SLF4J](https://www.slf4j.org/) does for logging.
 
 ## How to use it
 
@@ -49,11 +53,11 @@ pre defined providers in the classpath. You can also [implement your own](#custo
 <dependency>
     <groupId>com.juliaaano</groupId>
     <artifactId>payload</artifactId>
-    <version>${TO-BE-RELEASED}</version>
+    <version>0.0.2</version>
 </dependency>
 ```
 
-In case you just need JSON conversion, add [Google Gson](https://github.com/google/gson){:target="_blank"} or any of the
+In case you just need JSON conversion, add [Google Gson](https://github.com/google/gson) or any of the
 other JSON pre defined [providers](#providers).
 
 ```xml
@@ -72,14 +76,14 @@ following:
 
 ###### JSON
 
-* Gson
-* Jackson
-* JsonB
+* [Gson](https://github.com/google/gson)
+* [Jackson Databind](https://github.com/FasterXML/jackson-databind)
+* [Json Binding](http://json-b.net/)
 
 ###### XML
 
-* Jackson
-* JAXB
+* [Jackson XML](https://github.com/FasterXML/jackson-dataformat-xml)
+* [JAXB](https://en.wikipedia.org/wiki/Java_Architecture_for_XML_Binding)
 
 In case one or more are to be found, the priority is given by the order listed above.
 
@@ -87,8 +91,8 @@ In case one or more are to be found, the priority is given by the order listed a
 
 1. Implement one of the available \<MediaType>ProviderFactory.java.
 2. Declare the full name of your implementation class in a file as per
-[java.util.ServiceLoader](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html){:target="_blank"} specification
-*/META-INF/services/com.juliaaano.payload.json.\<MediaType>ProviderFactor*
+[java.util.ServiceLoader](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html) specification
+*/META-INF/services/com.juliaaano.payload.json.\<MediaType>ProviderFactory*
 
 ```java
 package com.your.project;
@@ -109,13 +113,11 @@ public class MyProvider implements JsonProviderFactory {
 }
 ```
 
-/META-INF/services/com.juliaaano.payload.json.JsonProviderFactory
 ```
+>/META-INF/services/com.juliaaano.payload.json.JsonProviderFactory
 com.your.project.MyProvider
 ```   
 
 ## Further Details
 
 Requires Java 8.
-
-// TODO
