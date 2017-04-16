@@ -8,18 +8,16 @@ import static java.lang.String.format;
 
 /**
  * Entry-point for payload conversion.
- *
- * <p>A MediaType contains an enumeration of represented <i>media types</i>
+ * <p>
+ * A MediaType contains an enumeration of represented <i>media types</i>
  * that are capable to transform a literal {@link String} data into a Java
  * object and vice-versa. A process also known as object data binding.
- *
- * <p><strong>Example:</strong>
- *
+ * <p>
+ * <strong>Example:</strong>
  * <blockquote><pre>
  * JSON.payload().newInstance(new MyObject()); // From object to JSON
  * JSON.payload().newInstance("{}", MyObject.class); // From JSON to object
  * </pre></blockquote>
- *
  * A MediaType, in this context, has the same semantics as the internet MIME
  * type. Use it to retrieve {@link Payload} with the corresponding
  * {@link PayloadFactory}.
@@ -62,17 +60,15 @@ public enum MediaType {
 
     /**
      * Retrieves the MediaType for the given media type string.
-     *
-     * <p>The given mediaType string is based on the internet standards (e.g.
+     * <p>
+     * The given mediaType string is based on the internet standards (e.g.
      * application/json).
      *
      * @param mediaType the representation of the MediaType based on internet
      *                  standards (e.g. application/xml).
-     *
      * @return the MediaType enum instance
-     *
      * @throws InvalidMediaTypeException if no corresponding type is found for
-     *         the given mediaType
+     *                                   the given mediaType
      */
     public static MediaType of(String mediaType) {
 
@@ -88,9 +84,9 @@ public enum MediaType {
 
     /**
      * Gets the {@link PayloadFactory} for this MediaType.
-     *
-     * <p>{@link Payload} cannot be created without a factory, therefore use it
-     * to instantiate new payloads.</p>
+     * <p>
+     * {@link Payload} cannot be created without a factory, therefore use it
+     * to instantiate new payloads.
      *
      * @return the {@link PayloadFactory} for this MediaType
      */

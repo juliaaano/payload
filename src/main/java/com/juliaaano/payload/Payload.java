@@ -4,8 +4,8 @@ package com.juliaaano.payload;
  * A Payload is an <strong>Object Oriented</strong> representation of data in a
  * <strong>raw</strong>, serialized format, such as JSON, XML, etc. The
  * supported formats are determined by {@link MediaType}.
- *
- * <p>Payload implementations are provisioned by {@link PayloadFactory}.
+ * <p>
+ * Payload implementations are provisioned by {@link PayloadFactory}.
  *
  * @param <T> the Java object type for which this payload is represented by.
  *
