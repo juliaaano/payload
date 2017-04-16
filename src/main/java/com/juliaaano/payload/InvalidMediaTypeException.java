@@ -1,7 +1,8 @@
 package com.juliaaano.payload;
 
 /**
- * General exception class to report internal errors with the library.
+ * Thrown to indicate that a client has passed an invalid or unsupported
+ * {@link MediaType}.
  *
  * @author Juliano Boesel Mohr
  */
