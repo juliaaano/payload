@@ -31,7 +31,7 @@ String json = jsonPayload.raw();
 
 Payload<MyObject> xmlPayload = XML.payload().newInstance(new MyObject());
 String xml = xmlPayload.raw();
-// ==> xml is <Dummy><value>abc</value></Dummy>
+// ==> xml is <MyObject><value>abc</value></MyObject>
 
 /* Deserialization */
 
