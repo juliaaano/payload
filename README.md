@@ -53,7 +53,7 @@ pre defined providers in the classpath. You can also [implement your own](#custo
 <dependency>
     <groupId>com.juliaaano</groupId>
     <artifactId>payload</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
 </dependency>
 ```
 
