@@ -9,8 +9,6 @@ import java.util.stream.Collectors;
 import static com.juliaaano.payload.MediaType.JSON;
 
 /**
- * @author Dmitry Yakubovksy <icubedm@gmail.com>
- *
  * Static JSON wrapper for easier access
  */
 public class JsonUtils {
