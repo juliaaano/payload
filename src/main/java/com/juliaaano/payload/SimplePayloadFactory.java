@@ -3,18 +3,18 @@ package com.juliaaano.payload;
 import com.juliaaano.payload.provider.Provider;
 import com.juliaaano.payload.provider.ProviderStrategy;
 
-class GenericPayloadFactory implements PayloadFactory {
+class SimplePayloadFactory implements PayloadFactory {
 
     private final ProviderStrategy strategy;
 
-    GenericPayloadFactory(final ProviderStrategy strategy) {
+    SimplePayloadFactory(final ProviderStrategy strategy) {
 
         this.strategy = strategy;
     }
 
     @Override
     public <T> Payload<T> newInstance(final String content, final Class<T> type) {
-        return new GenericPayload<T>(content, type) {
+        return new SimplePayload<T>(content, type) {
             @Override
             protected Provider provider() {
                 return strategy.choose();
@@ -24,7 +24,7 @@ class GenericPayloadFactory implements PayloadFactory {
 
     @Override
     public <T> Payload<T> newInstance(final T object) {
-        return new GenericPayload<T>(object) {
+        return new SimplePayload<T>(object) {
             @Override
             protected Provider provider() {
                 return strategy.choose();
