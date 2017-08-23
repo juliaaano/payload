@@ -25,9 +25,9 @@ public class MediaTypeShould {
     @Test
     public void cache_provider_after_second_payload_call() {
 
-        GenericPayload payload_1 = (GenericPayload) JSON.payload().newInstance(RANDOM_OBJECT);
-        GenericPayload payload_2 = (GenericPayload) JSON.payload().newInstance(RANDOM_OBJECT);
-        GenericPayload payload_3 = (GenericPayload) JSON.payload().newInstance(RANDOM_JSON, Dummy.class);
+        SimplePayload payload_1 = (SimplePayload) JSON.payload().newInstance(RANDOM_OBJECT);
+        SimplePayload payload_2 = (SimplePayload) JSON.payload().newInstance(RANDOM_OBJECT);
+        SimplePayload payload_3 = (SimplePayload) JSON.payload().newInstance(RANDOM_JSON, Dummy.class);
 
         assertThat(payload_2.provider()).isSameAs(payload_1.provider());
         assertThat(payload_3.provider()).isSameAs(payload_1.provider());

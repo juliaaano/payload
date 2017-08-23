@@ -2,19 +2,19 @@ package com.juliaaano.payload;
 
 import com.juliaaano.payload.provider.Provider;
 
-abstract class GenericPayload<T> implements Payload<T> {
+abstract class SimplePayload<T> implements Payload<T> {
 
     private final String raw;
 
     private final T object;
 
-    GenericPayload(final String raw, final Class<T> type) {
+    SimplePayload(final String raw, final Class<T> type) {
 
         this.raw = raw;
         this.object = provider().deserialize(raw, type);
     }
 
-    GenericPayload(final T object) {
+    SimplePayload(final T object) {
 
         this.raw = provider().serialize(object);
         this.object = object;
