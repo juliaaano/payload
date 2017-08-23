@@ -2,6 +2,8 @@ package com.juliaaano.payload;
 
 import com.juliaaano.payload.provider.Provider;
 
+import java.util.Objects;
+
 abstract class SimplePayload<T> implements Payload<T> {
 
     private final String raw;
@@ -40,5 +42,18 @@ abstract class SimplePayload<T> implements Payload<T> {
         return raw;
     }
 
-    //TODO equals, hashcode
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj) return true;
+        if (!(obj instanceof SimplePayload)) return false;
+
+        return Objects.equals(object, ((SimplePayload<?>) obj).object);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(object);
+    }
 }
