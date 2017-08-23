@@ -16,6 +16,6 @@ public class CachedProviderStrategy implements ProviderStrategy {
     @Override
     public Provider choose() {
 
-        return CACHE.computeIfAbsent(strategy.getClass(), s -> strategy.choose());
+        return CACHE.computeIfAbsent(strategy, s -> strategy.choose());
     }
 }

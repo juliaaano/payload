@@ -11,12 +11,12 @@ enum ProviderCache {
 
     CACHE;
 
-    private final Map<String, Provider> cache = new ConcurrentHashMap<>();
+    private final Map<ProviderStrategy, Provider> cache = new ConcurrentHashMap<>();
 
     Provider computeIfAbsent(
-            final Class<? extends ProviderStrategy> key,
-            final Function<? super String, ? extends Provider> mappingFunction) {
+            final ProviderStrategy key,
+            final Function<? super ProviderStrategy, ? extends Provider> mappingFunction) {
 
-        return cache.computeIfAbsent(key.getName(), mappingFunction);
+        return cache.computeIfAbsent(key, mappingFunction);
     }
 }
