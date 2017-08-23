@@ -1,8 +1,8 @@
 package com.juliaaano.payload.xml;
 
 import com.juliaaano.payload.provider.Provider;
-import com.juliaaano.payload.runtime.MethodDefinition;
-import com.juliaaano.payload.runtime.RuntimeProviderFactory;
+import com.juliaaano.payload.provider.runtime.MethodDefinition;
+import com.juliaaano.payload.provider.runtime.RuntimeProviderFactory;
 
 import java.util.Optional;
 
