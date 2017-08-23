@@ -2,19 +2,21 @@ package com.juliaaano.payload;
 
 import com.juliaaano.payload.provider.Provider;
 
-abstract class GenericPayload<T> implements Payload<T> {
+import java.util.Objects;
+
+abstract class SimplePayload<T> implements Payload<T> {
 
     private final String raw;
 
     private final T object;
 
-    GenericPayload(final String raw, final Class<T> type) {
+    SimplePayload(final String raw, final Class<T> type) {
 
         this.raw = raw;
         this.object = provider().deserialize(raw, type);
     }
 
-    GenericPayload(final T object) {
+    SimplePayload(final T object) {
 
         this.raw = provider().serialize(object);
         this.object = object;
@@ -40,5 +42,18 @@ abstract class GenericPayload<T> implements Payload<T> {
         return raw;
     }
 
-    //TODO equals, hashcode
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj) return true;
+        if (!(obj instanceof SimplePayload)) return false;
+
+        return Objects.equals(object, ((SimplePayload<?>) obj).object);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(object);
+    }
 }

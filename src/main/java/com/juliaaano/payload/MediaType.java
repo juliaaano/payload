@@ -30,7 +30,7 @@ public enum MediaType {
      * The <i>application/json</i> media type.
      */
     JSON("application/json",
-            new GenericPayloadFactory(
+            new SimplePayloadFactory(
                     new CachedProviderStrategy(
                             new JsonProviderStrategy()
                     )
@@ -41,7 +41,7 @@ public enum MediaType {
      * The <i>application/xml</i> media type.
      */
     XML("application/xml",
-            new GenericPayloadFactory(
+            new SimplePayloadFactory(
                     new CachedProviderStrategy(
                             new XmlProviderStrategy()
                     )
