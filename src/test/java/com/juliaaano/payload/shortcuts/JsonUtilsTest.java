@@ -1,22 +1,17 @@
-package com.juliaaano.payload;
+package com.juliaaano.payload.shortcuts;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-import static org.junit.Assert.*;
-
-/**
- * author: dmitry.yakubovsky
- * date:   24.06.17
- */
 public class JsonUtilsTest {
 
     @Test
     public void testToJson() {
         TestObject testObject = new TestObject("TEST");
-        assertEquals("{\"content\":\"TEST\"}", JsonUtils.toJson(testObject));
+        Assert.assertEquals("{\"content\":\"TEST\"}", JsonUtils.toJson(testObject));
     }
 
     @Test
@@ -24,7 +19,7 @@ public class JsonUtilsTest {
 
         String json = "{\"content\":\"TEST\"}";
         TestObject object = JsonUtils.fromJson(json, TestObject.class);
-        assertEquals("TEST", object.content);
+        Assert.assertEquals("TEST", object.content);
     }
 
     @Test
@@ -32,7 +27,7 @@ public class JsonUtilsTest {
         InputStream in = this.getClass().getClassLoader().getResourceAsStream("test_object.json");
 
         TestObject object = JsonUtils.fromJson(in, TestObject.class);
-        assertEquals("TEST", object.content);
+        Assert.assertEquals("TEST", object.content);
     }
 
     private static class TestObject {

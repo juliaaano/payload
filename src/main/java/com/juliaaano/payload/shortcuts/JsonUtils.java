@@ -1,4 +1,4 @@
-package com.juliaaano.payload;
+package com.juliaaano.payload.shortcuts;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,7 +9,9 @@ import java.util.stream.Collectors;
 import static com.juliaaano.payload.MediaType.JSON;
 
 /**
- * Static JSON wrapper for easier access
+ * Static JSON wrapper for easier access.
+ *
+ * @author Dmitry Yakubovsky
  */
 public class JsonUtils {
 
