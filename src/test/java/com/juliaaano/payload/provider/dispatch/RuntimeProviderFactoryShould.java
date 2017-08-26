@@ -1,4 +1,4 @@
-package com.juliaaano.payload.provider.runtime;
+package com.juliaaano.payload.provider.dispatch;
 
 import org.junit.Test;
 
