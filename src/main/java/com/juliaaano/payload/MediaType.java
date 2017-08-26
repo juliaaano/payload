@@ -1,8 +1,8 @@
 package com.juliaaano.payload;
 
 import com.juliaaano.payload.cache.CachedProviderStrategy;
+import com.juliaaano.payload.json.JsonPrioritizedProviderFactorySource;
 import com.juliaaano.payload.json.JsonProviderFactory;
-import com.juliaaano.payload.provider.sourcing.PrioritizedProviderFactorySource;
 import com.juliaaano.payload.provider.sourcing.SourcingProviderStrategy;
 import com.juliaaano.payload.provider.sourcing.SvcLoaderProviderFactorySource;
 import com.juliaaano.payload.xml.XmlProviderFactory;
@@ -36,7 +36,7 @@ public enum MediaType {
             new SimplePayloadFactory(
                     new CachedProviderStrategy(
                             new SourcingProviderStrategy<>(
-                                    new PrioritizedProviderFactorySource<>(
+                                    new JsonPrioritizedProviderFactorySource<>(
                                             new SvcLoaderProviderFactorySource<>(JsonProviderFactory.class)
                                     )
                             )

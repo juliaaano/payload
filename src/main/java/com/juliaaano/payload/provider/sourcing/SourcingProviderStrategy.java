@@ -48,7 +48,7 @@ public class SourcingProviderStrategy<T extends ProviderFactory> implements Prov
         }
 
         throw new ProviderException(
-                format("The are no providers available in %s.", providerFactorySource)
+                format("No providers found with %s.", providerFactorySource)
         );
     }
 }

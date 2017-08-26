@@ -87,6 +87,11 @@ following:
 
 In case one or more are to be found, the priority is given by the order listed above.
 
+###### Priority
+
+It is possible to determine exactly which provider to use in case the classpath contains multiples.
+For example, if Gson and Jackson are present in the classpath, you can tell Payload to use Jackson.
+
 ###### Custom Provider
 
 1. Implement one of the available \<MediaType>ProviderFactory.java.
