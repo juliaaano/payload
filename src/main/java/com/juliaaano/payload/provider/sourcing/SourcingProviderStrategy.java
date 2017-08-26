@@ -11,6 +11,12 @@ import java.util.Optional;
 
 import static java.lang.String.format;
 
+/**
+ * This strategy enables custom mechanisms to supply provider factories
+ * through the {@link ProviderFactorySource}.
+ *
+ * @author Juliano Boesel Mohr
+ */
 public class SourcingProviderStrategy<T extends ProviderFactory> implements ProviderStrategy {
 
     private static final Logger log = LoggerFactory.getLogger(SourcingProviderStrategy.class);

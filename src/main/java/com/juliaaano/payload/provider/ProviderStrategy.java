@@ -1,9 +1,10 @@
 package com.juliaaano.payload.provider;
 
 /**
- * A {@link ProviderStrategy} chooses which Provider should be used considering
- * there could be many possible choices, which are usually defined and listed
- * in META-INF/services files, as per specified in Java's
+ * A {@link ProviderStrategy} chooses which Provider should be used.
+ * Depending on the implementation, providers can be sourced and
+ * prioritized according to global configurations and/or
+ * META-INF/services files, as per specified in Java's
  * {@link java.util.ServiceLoader}
  *
  * @author Juliano Boesel Mohr
