@@ -89,8 +89,16 @@ In case one or more are to be found, the priority is given by the order listed a
 
 ###### Priority
 
-It is possible to determine exactly which provider to use in case the classpath contains multiples.
-For example, if Gson and Jackson are present in the classpath, you can tell Payload to use Jackson.
+It is possible to determine the priority of which providers are loaded.
+For example, if Gson and Jackson are present in the classpath, Payload can be configured to use Jackson instead of Gson
+by default.
+
+All required is to include a file named payload.properties in the root of the classpath:
+
+```
+json.provider=JacksonJson
+xml.provider=JacksonXml
+``` 
 
 ###### Custom Provider
 
