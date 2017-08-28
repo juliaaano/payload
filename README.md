@@ -87,6 +87,19 @@ following:
 
 In case one or more are to be found, the priority is given by the order listed above.
 
+###### Priority
+
+It is possible to determine the priority of which providers are loaded.
+For example, if Gson and Jackson are present in the classpath, Payload can be configured to use Jackson instead of Gson
+by default.
+
+All required is to include a file named payload.properties in the root of the classpath:
+
+```
+json.provider=JacksonJson
+xml.provider=JacksonXml
+``` 
+
 ###### Custom Provider
 
 1. Implement one of the available \<MediaType>ProviderFactory.java.

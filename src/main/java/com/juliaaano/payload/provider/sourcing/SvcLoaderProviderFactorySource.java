@@ -24,4 +24,10 @@ public class SvcLoaderProviderFactorySource<T extends ProviderFactory> implement
 
         return ServiceLoader.load(typeOfProviderFactory);
     }
+
+    @Override
+    public String toString() {
+
+        return typeOfProviderFactory.getName();
+    }
 }
