@@ -1,2 +1,2 @@
-com.juliaaano.payload.xml.JacksonXml
 com.juliaaano.payload.xml.Jaxb
+com.juliaaano.payload.xml.JacksonXml

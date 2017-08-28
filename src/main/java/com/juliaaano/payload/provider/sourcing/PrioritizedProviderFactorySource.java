@@ -6,7 +6,10 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Properties;
 
 import static java.lang.String.format;
 
@@ -23,7 +26,7 @@ public abstract class PrioritizedProviderFactorySource<T extends ProviderFactory
 
     protected abstract String priorityProperty();
 
-    protected abstract Map<String, Class<T>> providerFactories();
+    protected abstract Class<?> mapToFactory(String providerKey);
 
     @Override
     public Iterable<T> load() {
@@ -33,14 +36,14 @@ public abstract class PrioritizedProviderFactorySource<T extends ProviderFactory
                 .orElseGet(source::load);
     }
 
-    private Optional<Class<T>> discoverPriority() {
+    private Optional<Class<?>> discoverPriority() {
 
         return properties.get(priorityProperty())
                 .map(String::toUpperCase)
-                .map(providerFactories()::get);
+                .map(this::mapToFactory);
     }
 
-    private Iterable<T> prioritized(final Class<T> priority) {
+    private Iterable<T> prioritized(final Class<?> priority) {
 
         final List<T> providers = new ArrayList<>();
         source.load().forEach(providers::add);

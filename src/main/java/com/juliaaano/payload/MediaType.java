@@ -5,6 +5,7 @@ import com.juliaaano.payload.json.JsonPrioritizedProviderFactorySource;
 import com.juliaaano.payload.json.JsonProviderFactory;
 import com.juliaaano.payload.provider.sourcing.SourcingProviderStrategy;
 import com.juliaaano.payload.provider.sourcing.SvcLoaderProviderFactorySource;
+import com.juliaaano.payload.xml.XmlPrioritizedProviderFactorySource;
 import com.juliaaano.payload.xml.XmlProviderFactory;
 
 import static java.lang.String.format;
@@ -51,7 +52,9 @@ public enum MediaType {
             new SimplePayloadFactory(
                     new CachedProviderStrategy(
                             new SourcingProviderStrategy<>(
-                                    new SvcLoaderProviderFactorySource<>(XmlProviderFactory.class)
+                                    new XmlPrioritizedProviderFactorySource<>(
+                                            new SvcLoaderProviderFactorySource<>(XmlProviderFactory.class)
+                                    )
                             )
                     )
             )
