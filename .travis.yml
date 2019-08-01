@@ -2,6 +2,7 @@ language: java
 
 jdk:
   - openjdk8
+  - openjdk11
 
 cache:
   directories:
@@ -43,3 +44,4 @@ deploy:
     repo: juliaaano/payload
     branch: master
     tags: true
+    jdk: openjdk11
