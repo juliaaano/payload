@@ -16,26 +16,28 @@ before_install:
     fi
 
 install:
-  - mvn dependency:go-offline
+  - mvn dependency:go-offline --batch-mode --show-version
 
 script:
-  - mvn test --batch-mode
-  - mvn clean deploy --batch-mode --show-version -DskipTests -Dgpg.passphrase=$GPG_PASSPHRASE -Psign --settings settings.xml
+  - mvn test --batch-mode --show-version
+  - if [[ "$TRAVIS_JDK_VERSION" == "openjdk11" ]]; then
+      mvn clean deploy --batch-mode --show-version --activate-profiles sign --settings settings.xml -DskipTests -Dgpg.passphrase=$GPG_PASSPHRASE;
+    fi
 
 after_success:
-  - if [ -n "$TRAVIS_TAG" ]; then
-      mvn nexus-staging:release --settings settings.xml;
+  - if [[ -n "$TRAVIS_TAG" && "$TRAVIS_JDK_VERSION" == "openjdk11" ]]; then
+      mvn nexus-staging:release --batch-mode --show-version --settings settings.xml;
     fi
 
 after_failure:
-  - if [ -n "$TRAVIS_TAG" ]; then
-      mvn nexus-staging:drop --settings settings.xml;
+  - if [[ -n "$TRAVIS_TAG" && "$TRAVIS_JDK_VERSION" == "openjdk11" ]]; then
+      mvn nexus-staging:drop --batch-mode --show-version --settings settings.xml;
     fi
 
 deploy:
   provider: releases
   api_key:
-    secure: PV+1IXQ0ZHdDMSIZ1kZLbzZN9TyIHcCqMbQhlEm6v4UetKhJPcGtSnEO0gDgso0yRjpEBWqPDZAAl8c8P745YCZ9iMrM6foKNq2AEh6X5rt1SnYLHQUytC81+ghlzVXg/6IBKHACZWObWhTeVaYlN26fEd/CBhB84xp2Aqj3nsgprBLuCjk3UmAX+na8EVXZPWElW7LrhfyFtdhkA79Hk6BrgTVviV6W2DiILeoRJtsu07oRl8nb8z7qT+bvBqdEPO9p9CQpWzWLbVxSSZM5xSOZ0tgyP4HyM8KQzFX8ywRrrUe6YxygHEKlEzEofZ4uSOmY3/OEQyCqsJpPTGX4zBmwqneRKJ4Jpl9/2YfDs2nZ2X9pJfCbPMBhddOcjEzZJhLRPFODOAtXoxPxZBWy5veXexOLdWCSI0cc2EjPwNPGL6mDVDuqb95LHK1iKyuGvEqPo8VM5pZZNGwS3xOGEeoputao0nZEKVci7QcHq70H3Kpbphp9WjweIlheCaA764KqWpp21hfebdEAfrr/eSqlJ5XQSiy320yNrmu7SlVyDVaRMNw9sKmI+kJqVbtDz/pi+UxKaCIY1AikGtbtzZrpc+jMshZ1AwQnFFP5VqzD/Zjh4lsyjagyycwhZW+cWw7xqhC45wZCCEWivaT+DWTH+VMKHOkO1Ga9LHPUp4s=
+    secure: "hdCqWk1eb803aRKc82L3RGaumX8evQJxpR3ZdeDB1LGr/FUimxSDPIZ1e9VcZeW9CtN7HD2UpRZ6g49rQ6mvLA7aA7/r7sEoKMpifByOm7gOl5ZEisK4IzePeqecbomrKXFfjWxB2ubkWAPyx6V4sXi8TP7AG+Nuv3/SmT3mdyg2VuxqrQWpcvv2T9wy2axmLiEL1eKOrdDDtjPR3oZQIAb/3qu8IWwylpaMAQ1FVyjIYBvpwIHyMWZPhuCLW/6VC8omiGn9KsenJ0Ia6haKY4rp8vxq8HOwWjpRec8zEgV+VZ5w+O7wQMZ1xPe4ZwPVyRItaaRPNPonQAkR+U7iOGDYpVNXrvQR8vKP7FTsXLR3LPuWrnl7dyjry94F+Nd5v4R99qMrFrwktWKEzB+iwwSzTw7L9/swtWTYOqy5B8/XjMubh0OtKvYxXd8lFKuBMl6DQhQdU4LEk15sMFdutN62othX7yy8HwfKnE+0TbKFzLL3RwT4SDTXQBLArH5gJco41CR7tXrw7YuymsNtgn2nSBX2F1jGDwVCGWGuVHF3C8c9Zi3k77r11OWcovEisE7peN1Ihcz/iH3+hBuG7BaNeW/0cIISYGIN9Ab7xZW5hs/J7ufPbl1LWWHPSid/9kClW/8drv60U6yWa1TsNeyMEpoSUj8BX11AhDlQCwc="
   file_glob: true
   file:
     - target/payload-*.jar
