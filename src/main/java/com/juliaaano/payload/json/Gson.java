@@ -30,7 +30,7 @@ public class Gson implements JsonProviderFactory {
         try {
 
             return Optional.of(
-                    Class.forName("com.google.gson.Gson").newInstance()
+                    Class.forName("com.google.gson.Gson").getDeclaredConstructor().newInstance()
             );
 
         } catch (ReflectiveOperationException ex) {

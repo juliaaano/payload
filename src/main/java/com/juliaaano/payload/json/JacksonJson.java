@@ -30,7 +30,7 @@ public class JacksonJson implements JsonProviderFactory {
         try {
 
             return Optional.of(
-                    Class.forName("com.fasterxml.jackson.databind.ObjectMapper").newInstance()
+                    Class.forName("com.fasterxml.jackson.databind.ObjectMapper").getDeclaredConstructor().newInstance()
             );
 
         } catch (ReflectiveOperationException ex) {

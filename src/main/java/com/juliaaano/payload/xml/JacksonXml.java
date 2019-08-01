@@ -30,7 +30,7 @@ public class JacksonXml implements XmlProviderFactory {
         try {
 
             return Optional.of(
-                    Class.forName("com.fasterxml.jackson.dataformat.xml.XmlMapper").newInstance()
+                    Class.forName("com.fasterxml.jackson.dataformat.xml.XmlMapper").getDeclaredConstructor().newInstance()
             );
 
         } catch (ReflectiveOperationException ex) {
