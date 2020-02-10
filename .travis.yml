@@ -28,7 +28,7 @@ install:
 script:
   - $MAVEN_CMD test
   - if [[ "$TRAVIS_JDK_VERSION" == "openjdk11" ]]; then
-      $MAVEN_CMD clean deploy --activate-profiles sign --settings settings.xml -DskipTests -Dgpg.passphrase=$GPG_PASSPHRASE;
+      $MAVEN_CMD clean deploy --activate-profiles deploy --settings settings.xml -DskipTests -Dgpg.passphrase=$GPG_PASSPHRASE;
     fi
 
 after_success:
