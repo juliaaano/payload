@@ -4,7 +4,7 @@ package com.juliaaano.payload.provider;
  * General internal exception to be thrown when there are Provider related
  * issues.
  *
- * @author Juliano Boesel Mohr
+ * @author Juliano Mohr
  */
 public class ProviderException extends RuntimeException {
 

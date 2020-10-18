@@ -22,155 +22,15 @@
 
   <developers>
     <developer>
-      <name>Juliano Boesel Mohr</name>
+      <name>Juliano Mohr</name>
       <email>juliaaano@gmail.com</email>
       <organization>Juliaaano</organization>
-      <organizationUrl>http://www.juliaaano.com</organizationUrl>
+      <organizationUrl>https://www.juliaaano.com</organizationUrl>
     </developer>
   </developers>
 
   <scm>
     <url>https://github.com/juliaaano/payload</url>
-<<<<<<< HEAD
-
-    <licenses>
-        <license>
-            <name>MIT License</name>
-            <url>http://www.juliaaano.com/LICENSE</url>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <name>Juliano Boesel Mohr</name>
-            <email>juliaaano@gmail.com</email>
-            <organization>Juliaaano</organization>
-            <organizationUrl>http://www.juliaaano.com</organizationUrl>
-        </developer>
-    </developers>
-
-    <scm>
-        <url>https://github.com/juliaaano/payload</url>
-        <connection>scm:git:git@github.com:juliaaano/payload.git</connection>
-        <developerConnection>scm:git:git@github.com:juliaaano/payload.git</developerConnection>
-    </scm>
-
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
-
-    <dependencyManagement/>
-
-    <dependencies>
-
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
-        </dependency>
-
-        <!-- Logging -->
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.30</version>
-        </dependency>
-
-        <!-- Test -->
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>3.12.2</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Test JSON Providers -->
-
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.6</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.10.2</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- JSON-B RI (Yasson) -->
-        <dependency>
-            <groupId>org.eclipse</groupId>
-            <artifactId>yasson</artifactId>
-            <version>1.0.6</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- JSON-P RI -->
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.json</artifactId>
-            <version>1.1.4</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Test XML Providers -->
-
-        <dependency>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-runtime</artifactId>
-            <version>2.3.2</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-xml</artifactId>
-            <version>2.10.2</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Test Logging -->
-
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.13.0</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.13.2</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-yaml</artifactId>
-            <version>2.10.2</version>
-            <scope>test</scope>
-        </dependency>
-
-    </dependencies>
-
-    <build>
-=======
     <connection>scm:git:git@github.com:juliaaano/payload.git</connection>
     <developerConnection>scm:git:git@github.com:juliaaano/payload.git</developerConnection>
   </scm>
@@ -318,7 +178,6 @@
         </repository>
       </distributionManagement>
       <build>
->>>>>>> 1ddf59c... Reduce identation of xml to 2 spaces
         <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -356,6 +215,12 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
+                <!-- <configuration>
+                  <gpgArguments>
+                    <arg>&#x002D;&#x002D;pinentry-mode</arg>
+                    <arg>loopback</arg>
+                  </gpgArguments>
+                </configuration> -->
               </execution>
             </executions>
           </plugin>
