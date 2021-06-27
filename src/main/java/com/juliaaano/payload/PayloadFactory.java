@@ -7,7 +7,7 @@ package com.juliaaano.payload;
  * therefore implementations of this factory should be media type specific,
  * such as {@link com.juliaaano.payload.xml.XmlProviderFactory}.
  *
- * @author Juliano Mohr
+ * @author JM
  */
 public interface PayloadFactory {
 
