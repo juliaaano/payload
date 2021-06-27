@@ -33,12 +33,12 @@ script:
 
 after_success:
   - if [[ -n "$TRAVIS_TAG" && "$TRAVIS_JDK_VERSION" == "openjdk11" ]]; then
-      $MAVEN_CMD nexus-staging:release --settings settings.xml;
+      $MAVEN_CMD nexus-staging:release --activate-profiles deploy --settings settings.xml;
     fi
 
 after_failure:
   - if [[ -n "$TRAVIS_TAG" && "$TRAVIS_JDK_VERSION" == "openjdk11" ]]; then
-      $MAVEN_CMD nexus-staging:drop --settings settings.xml;
+      $MAVEN_CMD nexus-staging:drop --activate-profiles deploy --settings settings.xml;
     fi
 
 deploy:
