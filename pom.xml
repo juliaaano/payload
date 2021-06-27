@@ -6,7 +6,7 @@
 
   <groupId>com.juliaaano</groupId>
   <artifactId>payload</artifactId>
-  <version>1.1.2-SNAPSHOT</version>
+  <version>1.1.2</version>
   <packaging>jar</packaging>
 
   <name>Payload</name>
@@ -16,7 +16,7 @@
   <licenses>
     <license>
       <name>MIT License</name>
-      <url>http://www.juliaaano.com/LICENSE</url>
+      <url>https://www.juliaaano.com/LICENSE</url>
     </license>
   </licenses>
 
@@ -24,7 +24,7 @@
     <developer>
       <name>Juliano Mohr</name>
       <email>juliaaano@gmail.com</email>
-      <organization>Juliaaano</organization>
+      <organization>juliaaano</organization>
       <organizationUrl>https://www.juliaaano.com</organizationUrl>
     </developer>
   </developers>
