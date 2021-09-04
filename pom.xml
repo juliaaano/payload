@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.juliaaano</groupId>
   <artifactId>payload</artifactId>
-  <version>1.1.2-SNAPSHOT</version>
+  <version>1.1.4-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>Payload</name>
@@ -16,7 +17,7 @@
   <licenses>
     <license>
       <name>MIT License</name>
-      <url>http://www.juliaaano.com/LICENSE</url>
+      <url>https://www.juliaaano.com/LICENSE</url>
     </license>
   </licenses>
 
@@ -24,7 +25,7 @@
     <developer>
       <name>Juliano Mohr</name>
       <email>juliaaano@gmail.com</email>
-      <organization>Juliaaano</organization>
+      <organization>juliaaano</organization>
       <organizationUrl>https://www.juliaaano.com</organizationUrl>
     </developer>
   </developers>
@@ -215,12 +216,12 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
-                <!-- <configuration>
+                <configuration>
                   <gpgArguments>
                     <arg>&#x002D;&#x002D;pinentry-mode</arg>
                     <arg>loopback</arg>
                   </gpgArguments>
-                </configuration> -->
+                </configuration>
               </execution>
             </executions>
           </plugin>

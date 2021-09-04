@@ -1,5 +1,5 @@
 # Payload
-[![Build Status](https://travis-ci.com/juliaaano/payload.svg)](https://travis-ci.com/juliaaano/payload)
+[![ci](https://github.com/juliaaano/payload/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/juliaaano/payload/actions/workflows/ci-cd.yml)
 [![Release](https://img.shields.io/github/release/juliaaano/payload.svg)](https://github.com/juliaaano/payload/releases/latest)
 [![Maven Central](https://img.shields.io/maven-central/v/com.juliaaano/payload.svg)](https://maven-badges.herokuapp.com/maven-central/com.juliaaano/payload)
 [![Javadocs](http://www.javadoc.io/badge/com.juliaaano/payload.svg?color=blue)](http://www.javadoc.io/doc/com.juliaaano/payload)
@@ -53,7 +53,7 @@ pre defined providers in the classpath. You can also [implement your own](#custo
 <dependency>
     <groupId>com.juliaaano</groupId>
     <artifactId>payload</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.3</version>
 </dependency>
 ```
 

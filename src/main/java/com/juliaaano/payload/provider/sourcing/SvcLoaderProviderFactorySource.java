@@ -8,7 +8,7 @@ import java.util.ServiceLoader;
  * Source provider factories using {@link java.util.ServiceLoader} with
  * implementations of {@link ProviderFactory}.
  *
- * @author Juliano Mohr
+ * @author JM
  */
 public class SvcLoaderProviderFactorySource<T extends ProviderFactory> implements ProviderFactorySource<T> {
 

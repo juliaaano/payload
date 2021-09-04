@@ -10,7 +10,7 @@ import java.util.Optional;
  * listed in META-INF/services files, following {@link java.util.ServiceLoader}
  * specification.
  *
- * @author Juliano Mohr
+ * @author JM
  */
 public interface ProviderFactory {
 

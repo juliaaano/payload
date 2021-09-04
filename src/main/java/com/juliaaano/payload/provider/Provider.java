@@ -7,7 +7,7 @@ package com.juliaaano.payload.provider;
  * It should be extended by clients of the library who wish to support
  * additional (custom) providers.
  *
- * @author Juliano Mohr
+ * @author JM
  */
 public interface Provider {
 

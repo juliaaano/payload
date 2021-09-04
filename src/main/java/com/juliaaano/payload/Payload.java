@@ -9,7 +9,7 @@ package com.juliaaano.payload;
  *
  * @param <T> the Java object type for which this payload is represented by.
  *
- * @author Juliano Mohr
+ * @author JM
  */
 public interface Payload<T> {
 

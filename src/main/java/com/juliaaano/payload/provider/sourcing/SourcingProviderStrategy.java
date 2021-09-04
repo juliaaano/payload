@@ -15,7 +15,7 @@ import static java.lang.String.format;
  * This strategy enables custom mechanisms to supply provider factories
  * through the {@link ProviderFactorySource}.
  *
- * @author Juliano Mohr
+ * @author JM
  */
 public class SourcingProviderStrategy<T extends ProviderFactory> implements ProviderStrategy {
 

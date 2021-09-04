@@ -26,7 +26,7 @@ import static java.lang.String.format;
  * type. Use it to retrieve {@link Payload} with the corresponding
  * {@link PayloadFactory}.
  *
- * @author Juliano Mohr
+ * @author JM
  */
 public enum MediaType {
 

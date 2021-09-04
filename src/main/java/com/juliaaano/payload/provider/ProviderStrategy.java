@@ -7,7 +7,7 @@ package com.juliaaano.payload.provider;
  * META-INF/services files, as per specified in Java's
  * {@link java.util.ServiceLoader}
  *
- * @author Juliano Mohr
+ * @author JM
  */
 public interface ProviderStrategy {
 

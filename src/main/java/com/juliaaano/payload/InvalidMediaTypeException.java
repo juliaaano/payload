@@ -4,7 +4,7 @@ package com.juliaaano.payload;
  * Thrown to indicate that a client has passed an invalid or unsupported
  * {@link MediaType}.
  *
- * @author Juliano Mohr
+ * @author JM
  */
 public class InvalidMediaTypeException extends IllegalArgumentException {
 
