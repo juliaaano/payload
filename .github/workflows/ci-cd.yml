@@ -59,6 +59,7 @@ jobs:
       - name: mvn test
         run: $MVN test
       - name: mvn deploy
+        if: github.event_name != 'pull_request'
         run: $MVN --activate-profiles deploy --define gpg.passphrase=${{ secrets.GPG_PASSPHRASE }} --define skipTests deploy
         env:
           OSSRH_USR: ${{ secrets.OSSRH_USR }}
