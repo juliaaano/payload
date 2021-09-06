@@ -16,9 +16,6 @@ on:
     #        │  │ ┌───────────── day of the month (1 - 31)
     #        │  │ │ ┌───────────── month (1 - 12 or JAN-DEC)
     #        │  │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
-    #        │  │ │ │ │
-    #        │  │ │ │ │
-    #        │  │ │ │ │
     #        *  * * * *
     - cron: "15 1 * * *"
 
@@ -64,12 +61,6 @@ jobs:
         env:
           OSSRH_USR: ${{ secrets.OSSRH_USR }}
           OSSRH_PWD: ${{ secrets.OSSRH_PWD }}
-      - name: mvn release
-        if: startsWith(github.ref, 'refs/tags/')
-        run: $MVN --activate-profiles deploy nexus-staging:release
-        env:
-          OSSRH_USR: ${{ secrets.OSSRH_USR }}
-          OSSRH_PWD: ${{ secrets.OSSRH_PWD }}
       - name: github release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
@@ -77,6 +68,12 @@ jobs:
           files: |
             target/payload-*.jar
             target/payload-*.jar.asc
+      - name: mvn release
+        if: startsWith(github.ref, 'refs/tags/')
+        run: $MVN --activate-profiles deploy nexus-staging:release
+        env:
+          OSSRH_USR: ${{ secrets.OSSRH_USR }}
+          OSSRH_PWD: ${{ secrets.OSSRH_PWD }}
 
       # - name: Step To run on failure
       #   if: ${{ failure() }}
